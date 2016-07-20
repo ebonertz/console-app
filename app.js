@@ -9,25 +9,44 @@
 //Format to CSV for Field Headers
 //Send the Data to the Google Sheets API
 
+// require('./modules/ct-service')(app);
+// require('./modules/sheets')(app);
 
 var http = require("http");
+
+var projectKey = 'down-under';
+var token = '';
+var baseURL = 'https://api.sphere.io/$projectKey';
+var tokenHeader = 'Authorization: Bearer $token';
 
 function printMessage(username, email) {
   var message = "User: " + username + " Email: " + email;
   console.log(message);
 }
 
-var request = http.get("https://api.sphere.io/down-under/customer" , function(response){
+var options = {
+  hostname: 'https://api.sphere.io',
+  port: 80,
+  path: '/down-under/customer',
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer token'
+      }
+};
+
+var request = http.request(options, function(response){
   console.dir(response);
   console.log(response.status);
   var body = " ";
   response.on('data', function(chunk) {
-    console.log('BODY: ' + chunk);
+    console.log(chunk);
+    body += chunk;
   });
   response.on('end', function() {
+    var profile = JSON.parse(body);
     console.log(body);
   })
-}):
+});
 
 //Set an error for a bad response
 

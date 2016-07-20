@@ -1,0 +1,22 @@
+{
+  "name": "console-app",
+  "version": "1.0.0",
+  "description": "Sphere Microservice with Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebonertz/console-app.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Evan Bonertz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebonertz/console-app/issues"
+  },
+  "homepage": "https://github.com/ebonertz/console-app#readme"
+}
